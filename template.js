@@ -51,7 +51,7 @@ exports.template = function(grunt, init, done) {
     {
       name: 'assemble_version',
       message: 'What versions of Assemble does it require?',
-      default: '>= 0.3.72',
+      default: '>= 0.3.73',
       warning: 'Must be a valid semantic version range descriptor.'
     },
     {
@@ -64,12 +64,11 @@ exports.template = function(grunt, init, done) {
 
     // Set a few grunt-plugin-specific properties.
     props.repository = 'git://github.com/' + props.author_name + '/' + props.name + '.git';
-    props.hompage = 'https://github.com/' + props.author_name + '/' + props.name + '/';
-    props.main = 'Gruntfile.js';
-    props.npm_test = 'grunt assemble';
+    props.hompage    = 'https://github.com/' + props.author_name + '/' + props.name + '/';
+    props.main       = 'Gruntfile.js';
+    props.npm_test   = 'grunt assemble';
     props.keywords = ['gruntplugin', 'site generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
-      'grunt-prettify': '~0.1.1',
       'grunt-contrib-clean': '~0.4.0',
       'assemble': props.assemble_version
     };

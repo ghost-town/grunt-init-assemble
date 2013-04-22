@@ -28,17 +28,6 @@ module.exports = function(grunt) {
       }
     },
 
-    prettify: {
-      options: {prettifyrc: '.prettifyrc'},
-      {%= name %}: {
-        expand: true, 
-        cwd: '<%= assemble.{%= name %}.dest %>/', 
-        ext: '.html', 
-        src: ['*.html'], 
-        dest: '<%= assemble.{%= name %}.dest %>/'
-      }
-    },
-
     // Before generating any new files, 
     // remove any previously-created files.
     clean: {
@@ -48,10 +37,9 @@ module.exports = function(grunt) {
 
   // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('grunt-prettify');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task to be run.
-  grunt.registerTask('default', ['clean', 'assemble', 'prettify']);
+  grunt.registerTask('default', ['clean', 'assemble']);
 
 };
