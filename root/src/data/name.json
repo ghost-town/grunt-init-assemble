@@ -1,4 +1,0 @@
-{
-  "title": "{%= name %}",
-  "description": "{%= description %}"
-}

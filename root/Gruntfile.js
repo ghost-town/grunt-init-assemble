@@ -12,13 +12,13 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
 
-    // Run tests
     assemble: {
       {%= name %}: {
         options: {
           flatten: true,
-          assets: 'dist/assets',
+          assets: '<%= assemble.{%= name %}.dest %>/assets',
           layout: 'src/templates/layouts/default.hbs',
           partials: 'src/templates/partials/*.hbs',
           data: 'src/data/*.{json,yml}'
@@ -28,19 +28,30 @@ module.exports = function(grunt) {
       }
     },
 
+    prettify: {
+      options: {prettifyrc: '.prettifyrc'},
+      {%= name %}: {
+        expand: true, 
+        cwd: '<%= assemble.{%= name %}.dest %>/', 
+        ext: '.html', 
+        src: ['*.html'], 
+        dest: '<%= assemble.{%= name %}.dest %>/'
+      }
+    },
+
     // Before generating any new files, 
     // remove any previously-created files.
     clean: {
-      tests: ['<%= assemble.{%= name %}.dest %>/*.html'],
+      {%= name %}: ['<%= assemble.{%= name %}.dest %>/*.html'],
     }
-
   });
 
-  // These plugins provide necessary tasks.
+  // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-prettify');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  // By default, lint and run all tests.
-  grunt.registerTask('default', ['clean', 'assemble']);
+  // Default task to be run.
+  grunt.registerTask('default', ['clean', 'assemble', 'prettify']);
 
 };

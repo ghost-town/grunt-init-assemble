@@ -8,8 +8,9 @@
 
 'use strict';
 
+
 // Basic template description.
-exports.description = 'Create a project with Grunt and Assemble, including templates and data.';
+exports.description = 'Create a project with Assemble and Grunt, including starter templates and data.';
 
 // Template-specific notes to be displayed before question prompts.
 exports.notes = 'For more information about creating Assemble projects, ' +
@@ -24,30 +25,33 @@ exports.after = 'You should now install project dependencies with _npm ' +
   'http://github.com/assemble/assemble/wiki/getting-started';
 
 // Any existing file or directory matching this wildcard will cause a warning.
-exports.warnOn = '*';
+exports.warnOn = ['*'];
 
 // The actual init template.
 exports.template = function(grunt, init, done) {
 
   init.process({type: 'assemble'}, [
     // Prompt for these values.
-    init.prompt('name', 'example'),
-    init.prompt('description', 'Example project for Assemble.'),
+    init.prompt('name', 'assemble'),
+    {
+      name: 'description',
+      message: 'Description',
+      default: 'Assemble a website from templates and data.',
+      warning: 'May consist of any characters.'
+    },
     init.prompt('version'),
+    init.prompt('author_name', 'assemble'),
     init.prompt('repository'),
     init.prompt('homepage'),
-    init.prompt('bugs'),
-    init.prompt('licenses'),
-    init.prompt('author_name'),
     init.prompt('author_email'),
     init.prompt('author_url'),
-    init.prompt('main'),
+    init.prompt('bugs'),
+    init.prompt('licenses'),
     init.prompt('grunt_version'),
-    init.prompt('node_version', grunt.package.engines.node),
     {
       name: 'assemble_version',
       message: 'What versions of Assemble does it require?',
-      default: '>= 0.3.4',
+      default: '>= 0.3.72',
       warning: 'Must be a valid semantic version range descriptor.'
     },
     {
@@ -57,12 +61,15 @@ exports.template = function(grunt, init, done) {
       warning: 'If selected, you must enable Travis support for this project in https://travis-ci.org/profile'
     },
   ], function(err, props) {
+
     // Set a few grunt-plugin-specific properties.
-    props.name = props.name.replace(/^grunt[\-_]?/, '').replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
+    props.repository = 'git://github.com/' + props.author_name + '/' + props.name + '.git';
+    props.hompage = 'https://github.com/' + props.author_name + '/' + props.name + '/';
     props.main = 'Gruntfile.js';
     props.npm_test = 'grunt assemble';
-    props.keywords = ['gruntplugin', 'assemble', 'site generator', 'blog generator', 'templates'];
+    props.keywords = ['gruntplugin', 'site generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
+      'grunt-prettify': '~0.1.1',
       'grunt-contrib-clean': '~0.4.0',
       'assemble': props.assemble_version
     };
@@ -84,6 +91,7 @@ exports.template = function(grunt, init, done) {
 
     // Generate package.json file.
     init.writePackageJSON('package.json', props);
+    init.writePackageJSON('component.json', props);
 
     // All done!
     done();

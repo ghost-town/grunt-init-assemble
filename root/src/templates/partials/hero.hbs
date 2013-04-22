@@ -1,8 +1,12 @@
 ---
 title: Success! Your page was assembled!
+description: This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+link: https://github.com/assemble/assemble
 ---
-<div class="hero">
-  <div class="page-title">
-    <h1>{{ title }}</h1>
-  </div>
+<div class="hero-unit">
+  <h1>{{ title }}</h1>
+  <p>{{ description }}</p>
+  <p>
+    {{> button }}
+  </p>
 </div>

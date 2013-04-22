@@ -1,8 +1,15 @@
-# {%= name %}
+# {%= name %}{% if (travis) { %} [![Build Status](https://secure.travis-ci.org/{%= git_user %}/{%= git_repo %}.png?branch=master)](http://travis-ci.org/{%= git_user %}/{%= git_repo %}){% } %}
 
 > [Assemble][assemble] is a Grunt plugin that makes it dead simple to build modular sites and components from reusable **templates** and **data**.
 
-{%= description %}
+{%= description %}. Includes:
+
+* Layouts
+* Pages
+* Partials
+* YAML Front-matter
+* Markdown content
+
 
 ## Getting Started
 
@@ -26,8 +33,8 @@ grunt.initConfig({
     {%= name %}: {
       options: {
         flatten: true,
-        assets: '<%= assemble.{%= name %}.dest %>/assets'
-        layout: 'src/templates/layouts/default.hbs'
+        assets: '<%= assemble.{%= name %}.dest %>/assets',
+        layout: 'src/templates/layouts/default.hbs',
         partials: 'src/templates/partials/*.hbs',
         data: 'src/data/*.{json,yml}'
       },
@@ -38,48 +45,62 @@ grunt.initConfig({
 })
 ```
 
+#### YAML Front-Matter
+YAML front-matter is optionally used at the top of each page to define metadata for the page. In order for YAML front-matter to be processed, it must be the first thing at the top of the page, and it must be wrapped properly, with three dashes above and three below:
+
+``` yaml
+---
+title: YAML Front-Matter Example
+---
+
+<h1> {{ title }} </h1>
+Page content here ...
+```
+
 ### Options
 Visit [Assemble's documentation][wiki] to learn about the available task and target options as well as how to configure them. Also, if are not yet familiar with Grunt.js, please consider visiting the Grunt documentation to learn more about [configuring tasks][configuring-tasks]. 
 
-#### `flatten`
-Type: `Boolean`
+#### flatten
+Type: `Boolean` (optional)
 Default: `false`
 
 Remove anything after (and including) the first "." in the destination path, then append this value. In other words, when they are are generated from different source folders this "flattens" them into the same destination directory. See [building the files object dynamically][files-object] for more information on files formats.
 
 
-#### `layout`
+#### layout
 Type: `String` (optional)
 Default: `undefined`
 
 If set, this defines the layout file to use for that [target][tasks-and-targets]. Unlike Jekyll, Assemble requires a file extension since you are not limited to using a single file type.
 
+Learn more about [options.layouts][layouts]
 
-#### `partials`
-Type: `Object` (optional)
-Parameters: `Object|Array`
+#### partials
+Type: `Object|Array` (optional)
 Default: `undefined`
 
-Specifies the Handlebars partials files, or paths to the directories of files to be used. 
+Specifies the Handlebars [partials][] files, or paths to the directories of files to be used. 
 
+Learn more about [options.partials][partials]
 
-#### `assets`
+#### assets
 Type: `String` (optional)
 Default: `undefined`
 
 Used with the `\{{assets}}` variable to resolve the relative path from the _dest file_ to the _assets_ folder.
 
 
-#### `partials`
-Type: `String`
-Default value: `'.'`
+#### data
+Type: `Object|Array` (optional)
+Default: `src/data`
 
-A string value that is used to do something else with whatever else.
+Retrieves data from any specified `JSON` and/or `YAML` files to populate the templates when rendered. Data gets passed through the `data` object to the options on the assemble task, then to the context in your templates. 
 
-Also note that globbing (see [minimatch](https://github.com/isaacs/minimatch)) and Lodash (underscore) templates can be use with every option.
+Learn more about [data][data]
 
+### Usage Examples 
 
-### Usage Examples
+Here are some examples of how you can customize the Assemble task for different use cases. Visit the [assemble-examples][] repo to see more example projects.
 
 ```js
 assemble: {
@@ -161,11 +182,6 @@ assemble: {
 }
 ```
 
-## Author
-This example was created by 
-
-
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Use [Assemble][assemble] to build and maintain your gh-pages, blog or documentation. Lint and test your code using [Grunt](http://gruntjs.com/).
 
@@ -174,14 +190,14 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 2013-04-15    v0.1.0    First commit. 
  
 
-<!-- assemble links -->
-
-[assemble]: https://github.com/assemble/assemble/
-[wiki]: https://github.com/assemble/assemble/wiki
 [download]: https://github.com/assemble/assemble-examples-basic/archive/master.zip
+[assemble]: https://github.com/assemble/assemble/
+[assemble-examples]: https://github.com/assemble/assemble-examples
 
-
-<!-- grunt links -->
+[wiki]: https://github.com/assemble/assemble/wiki
+[layouts]: https://github.com/assemble/assemble/wiki/layouts
+[partials]: https://github.com/assemble/assemble/wiki/partials
+[data]: https://github.com/assemble/assemble/wiki/data
 
 [gruntfile]: http://gruntjs.com/sample-gruntfile
 [configuring tasks]: http://gruntjs.com/configuring-tasks

@@ -2,12 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{%= name %}</title>
-    <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{assets}}/bootstrap.css">
   </head>
   <body>
+    <!-- nav partial -->
+    {{> nav }}
+
     <div class="container">
+      <!-- pages -->
       {{> body }}
+
+      <script src="{{assets}}/highlight.js"></script>
     </div>
   </body>
 </html>
