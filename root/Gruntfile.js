@@ -1,5 +1,5 @@
 /*
- * {%= name %}
+ * Assemble, {%= name }
  * {%= homepage %}
  *
  * Copyright (c) {%= grunt.template.today('yyyy') %} {%= author_name %}
@@ -15,10 +15,10 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     assemble: {
-      {%= name %}: {
+      example: {
         options: {
           flatten: true,
-          assets: '<%= assemble.{%= name %}.dest %>/assets',
+          assets: '<%= assemble.example.dest %>/assets',
           layout: 'src/templates/layouts/default.hbs',
           partials: 'src/templates/partials/*.hbs',
           data: 'src/data/*.{json,yml}'
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     // Before generating any new files, 
     // remove any previously-created files.
     clean: {
-      {%= name %}: ['<%= assemble.{%= name %}.dest %>/*.html'],
+      example: ['<%= assemble.example.dest %>/*.html'],
     }
   });
 

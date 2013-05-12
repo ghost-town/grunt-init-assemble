@@ -1,0 +1,164 @@
+---
+name: Bootstrap
+version: "3.0.0"
+notes: >
+  Example for using JSON with underscore templates to create bundles from Bootstrap's
+  LESS components and JavaScript plugins. The version, name and notes properties are also 
+  included as examples in case you have a reason to do versioning.
+
+
+# Concatenated files
+lib:
+  less: <%= bootstrap.less %>/bootstrap.less
+  js:   <%= bootstrap.js %>/bootstrap.js
+
+
+# LESS Components
+less: <%= bootstrap.base %>/less
+components:
+  variables       : <%= bootstrap.less %>/variables.less
+  mixins          : <%= bootstrap.less %>/mixins.less
+  normalize       : <%= bootstrap.less %>/normalize.less
+  print           : <%= bootstrap.less %>/print.less
+  accordion       : <%= bootstrap.less %>/accordion.less
+  alerts          : <%= bootstrap.less %>/alerts.less
+  badges          : <%= bootstrap.less %>/badges.less
+  breadcrumbs     : <%= bootstrap.less %>/breadcrumbs.less
+  button_groups   : <%= bootstrap.less %>/button-groups.less
+  buttons         : <%= bootstrap.less %>/buttons.less
+  carousel        : <%= bootstrap.less %>/carousel.less
+  close           : <%= bootstrap.less %>/close.less
+  code            : <%= bootstrap.less %>/code.less
+  animations      : <%= bootstrap.less %>/component-animations.less
+  dropdowns       : <%= bootstrap.less %>/dropdowns.less
+  forms           : <%= bootstrap.less %>/forms.less
+  glyphicons      : <%= bootstrap.less %>/glyphicons.less
+  grid            : <%= bootstrap.less %>/grid.less
+  jumbotron       : <%= bootstrap.less %>/jumbotron.less
+  panels          : <%= bootstrap.less %>/panels.less
+  labels          : <%= bootstrap.less %>/labels.less
+  media           : <%= bootstrap.less %>/media.less
+  modals          : <%= bootstrap.less %>/modals.less
+  navbar          : <%= bootstrap.less %>/navbar.less
+  navs            : <%= bootstrap.less %>/navs.less
+  list_group      : <%= bootstrap.less %>/list-group.less
+  pager           : <%= bootstrap.less %>/pager.less
+  pagination      : <%= bootstrap.less %>/pagination.less
+  popovers        : <%= bootstrap.less %>/popovers.less
+  progress_bars   : <%= bootstrap.less %>/progress-bars.less
+  scaffolding     : <%= bootstrap.less %>/scaffolding.less
+  tables          : <%= bootstrap.less %>/tables.less
+  thumbnails      : <%= bootstrap.less %>/thumbnails.less
+  tooltip         : <%= bootstrap.less %>/tooltip.less
+  type            : <%= bootstrap.less %>/type.less
+  wells           : <%= bootstrap.less %>/wells.less
+  utilities       : <%= bootstrap.less %>/utilities.less
+  responsive_utils: <%= bootstrap.less %>/responsive-utilities.less
+
+# LESS Bundles
+bundle:
+
+  # Globally required
+  globals:
+  - <%= bootstrap.components.variables %>
+  - <%= bootstrap.components.mixins %>
+  - <%= bootstrap.components.utilities %>
+
+  # Components: Core
+  core:
+  - <%= bootstrap.components.normalize %>
+  - <%= bootstrap.components.print %>
+  - <%= bootstrap.components.scaffolding %>
+  - <%= bootstrap.components.grid %>
+  - <%= bootstrap.components.type %>
+  - <%= bootstrap.components.code %>
+  - <%= bootstrap.components.forms %>
+  - <%= bootstrap.components.tables %>
+  - <%= bootstrap.components.buttons %>
+  - <%= bootstrap.components.utilities %>
+
+  # Components: Common
+  common:
+  - <%= bootstrap.components.animations %>
+  - <%= bootstrap.components.glyphicons %>
+  - <%= bootstrap.components.dropdowns %>
+  - <%= bootstrap.components.wells %>
+  - <%= bootstrap.components.panels %>
+  - <%= bootstrap.components.close %>
+
+  # Components: Nav
+  nav:
+  - <%= bootstrap.components.navs %>
+  - <%= bootstrap.components.list_group %>
+  - <%= bootstrap.components.navbar %>
+  - <%= bootstrap.components.button_groups %>
+  - <%= bootstrap.components.breadcrumbs %>
+  - <%= bootstrap.components.pagination %>
+  - <%= bootstrap.components.pager %>
+
+  # Components: z-index
+  zindex:
+  - <%= bootstrap.components.modals %>
+  - <%= bootstrap.components.tooltip %>
+  - <%= bootstrap.components.popovers %>
+
+  # Components: Misc
+  misc:
+  - <%= bootstrap.components.alerts %>
+  - <%= bootstrap.components.thumbnails %>
+  - <%= bootstrap.components.media %>
+  - <%= bootstrap.components.badges %>
+  - <%= bootstrap.components.labels %>
+  - <%= bootstrap.components.progress_bars %>
+  - <%= bootstrap.components.accordion %>
+  - <%= bootstrap.components.carousel %>
+  - <%= bootstrap.components.jumbotron %>
+
+  # Everything
+  all:
+  - <%= bootstrap.bundle.core %>
+  # - <%= bootstrap.bundle.common %>
+  # - <%= bootstrap.bundle.nav %>
+  # - <%= bootstrap.bundle.zindex %>
+  # - <%= bootstrap.bundle.misc %>
+  # - <%= bootstrap.components.utilities %>
+
+  # Selected components
+  custom:
+  - <%= bootstrap.bundle.basics %>
+  - <%= bootstrap.components.normalize %>
+  - <%= bootstrap.components.scaffolding %>
+  - <%= bootstrap.components.grid %>
+  - <%= bootstrap.components.type %>
+  - <%= bootstrap.components.utilities %>
+
+
+
+# Javascript plugins
+js:   <%= bootstrap.base %>/js
+plugin:
+  bootstrap_affix     : <%= bootstrap.js %>/bootstrap-affix.js
+  bootstrap_alert     : <%= bootstrap.js %>/bootstrap-alert.js
+  bootstrap_button    : <%= bootstrap.js %>/bootstrap-button.js
+  bootstrap_carousel  : <%= bootstrap.js %>/bootstrap-carousel.js
+  bootstrap_collapse  : <%= bootstrap.js %>/bootstrap-collapse.js
+  bootstrap_dropdown  : <%= bootstrap.js %>/bootstrap-dropdown.js
+  bootstrap_modal     : <%= bootstrap.js %>/bootstrap-modal.js
+  bootstrap_popover   : <%= bootstrap.js %>/bootstrap-popover.js
+  bootstrap_scrollspy : <%= bootstrap.js %>/bootstrap-scrollspy.js
+  bootstrap_tab       : <%= bootstrap.js %>/bootstrap-tab.js
+  bootstrap_tooltip   : <%= bootstrap.js %>/bootstrap-tooltip.js
+  bootstrap_transition: <%= bootstrap.js %>/bootstrap-transition.js
+  bootstrap_typeahead : <%= bootstrap.js %>/bootstrap-typeahead.js
+
+  # Vendor JavaScripts
+  html5shiv           : <%= bootstrap.js %>/html5shiv.js
+  jquery              : <%= bootstrap.js %>/jquery.js
+  application         : <%= bootstrap.js %>/application.js
+
+
+# Files to ignore. Usage: '<%= bootstrap.ignore %>'
+ignore:
+- !bootstrap.less
+- !variables.less
+- !mixins.less
