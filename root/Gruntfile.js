@@ -15,23 +15,34 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     assemble: {
-      example: {
+      options: {
+        assets: 'dist/assets',
+        data: 'src/data/*.{json,yml}'
+      },
+      pages: {
         options: {
           flatten: true,
-          assets: '<%= assemble.example.dest %>/assets',
           layout: 'src/templates/layouts/default.hbs',
           partials: 'src/templates/partials/*.hbs',
-          data: 'src/data/*.{json,yml}'
         },
-        src:  'src/templates/pages/*.hbs',
-        dest: 'dist/'
+        files: {
+          'dist/': ['src/templates/pages/*.hbs']
+        }
+      },
+      components: {
+        options: {
+          assets: 'dist/components/assets'
+        }
+        files: {
+          'dist/components/': ['src/templates/partials/*.hbs']
+        }
       }
     },
 
     // Before generating any new files, 
     // remove any previously-created files.
     clean: {
-      example: ['<%= assemble.example.dest %>/*.html'],
+      example: ['dist/**/*.html'],
     }
   });
 
@@ -40,6 +51,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task to be run.
-  grunt.registerTask('default', ['clean', 'assemble']);
+  grunt.registerTask('default', ['clean', 'assemble:pages']);
 
 };

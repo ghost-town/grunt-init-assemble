@@ -30,19 +30,30 @@ In the project's Gruntfile, the example `assemble` task is pre-loaded with paths
 grunt.initConfig({
   // The "assemble" task
   assemble: {
-    {%= name %}: {
+    options: {
+      assets: 'dist/assets',
+      data: 'src/data/*.{json,yml}'
+    },
+    pages: {
       options: {
         flatten: true,
-        assets: '<%= assemble.{%= name %}.dest %>/assets',
         layout: 'src/templates/layouts/default.hbs',
         partials: 'src/templates/partials/*.hbs',
-        data: 'src/data/*.{json,yml}'
       },
-      src:  'src/templates/pages/*.hbs',
-      dest: 'dist/'
+      files: {
+        'dist/': ['src/templates/pages/*.hbs']
+      }
+    },
+    components: {
+      options: {
+        assets: 'dist/components/assets'
+      }
+      files: {
+        'dist/components/': ['src/templates/partials/*.hbs']
+      }
     }
   }
-})
+});
 ```
 
 #### YAML Front-Matter
@@ -87,7 +98,7 @@ Learn more about [options.partials][partials]
 Type: `String` (optional)
 Default: `undefined`
 
-Used with the `\{{assets}}` variable to resolve the relative path from the _dest file_ to the _assets_ folder.
+Used with the `{{assets}}` variable to resolve the relative path from the _dest file_ to the _assets_ folder.
 
 
 #### data
