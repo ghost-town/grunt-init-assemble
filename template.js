@@ -70,6 +70,8 @@ exports.template = function(grunt, init, done) {
     props.keywords = ['gruntplugin', 'site generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
       'grunt-contrib-clean': '~0.4.0',
+      'assemble-less': '~0.4.1',
+      'assemble-manifest': '~0.1.3',
       'assemble': props.assemble_version
     };
     props.peerDependencies = {

@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       components: {
         options: {
           assets: 'dist/components/assets'
-        }
+        },
         files: {
           'dist/components/': ['src/templates/partials/*.hbs']
         }
