@@ -1,0 +1,14 @@
+{
+  "name": "grunt-assemble-init",
+  "version": "0.1.0",
+  "description": "Create an example project for Assemble.",
+  "main": "template.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/assemble/grunt-init-assemble.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "gitHead": "88e641d8b6b0c12e3fd4119f83701da002a4b5c9",
+  "readmeFilename": "README.md"
+}
