@@ -1,5 +1,7 @@
 ---
-title: Home
+title: {%= name %}
+lead: Welcome to my blog!
 ---
-{{! generate the index.html page from the readme }}
-{{{md 'README.md'}}}
+
+<h1> {{{ uppercase title }}} </h1>
+<p class="lead"> {{{ lead }}} </p>

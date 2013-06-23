@@ -8,6 +8,10 @@
 
 'use strict';
 
+var grunt = require('grunt');
+var _     = grunt.util._; // lodash
+var path  = require('path');
+
 
 // Basic template description.
 exports.description = 'Create a project with Assemble and Grunt, including starter templates and data.';
@@ -30,6 +34,9 @@ exports.warnOn = ['*'];
 // The actual init template.
 exports.template = function(grunt, init, done) {
 
+  // Internal lib
+  _.mixin(require('./lib/mixins').init(grunt));
+
   init.process({type: 'assemble'}, [
     // Prompt for these values.
     init.prompt('name', 'assemble'),
@@ -51,7 +58,7 @@ exports.template = function(grunt, init, done) {
     {
       name: 'assemble_version',
       message: 'What versions of Assemble does it require?',
-      default: '>= 0.3.73',
+      default: '~0.4.0',
       warning: 'Must be a valid semantic version range descriptor.'
     },
     {
@@ -67,16 +74,10 @@ exports.template = function(grunt, init, done) {
     props.hompage    = 'https://github.com/' + props.author_name + '/' + props.name + '/';
     props.main       = 'Gruntfile.js';
     props.npm_test   = 'grunt assemble';
-    props.keywords = ['gruntplugin', 'site generator', 'blog generator', 'handlebars', 'templates'];
+    props.keywords   = ['gruntplugin', 'build', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
       'grunt-contrib-clean': '~0.4.1',
-      'grunt-contrib-watch': '~0.4.3',
-      'assemble-manifest': '~0.1.3',
-      'assemble-less': '~0.4.1',
       'assemble': props.assemble_version
-    };
-    props.peerDependencies = {
-      'grunt': props.grunt_version,
     };
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '0.8';
@@ -93,7 +94,6 @@ exports.template = function(grunt, init, done) {
 
     // Generate package.json file.
     init.writePackageJSON('package.json', props);
-    init.writePackageJSON('component.json', props);
 
     // All done!
     done();

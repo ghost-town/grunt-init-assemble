@@ -2,18 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{assets}}/bootstrap.css">
+    <title>{{title}} | {{site.title}}</title>
+    <link rel="stylesheet" href="{{assets}}/assemble.css">
+    <link rel="stylesheet" href="{{assets}}/github.css">
   </head>
   <body>
-    <!-- nav partial -->
-    {{> nav }}
 
+    <!-- Navbar 
+    ================================================== -->
+    {{> navbar-fixed-top }}
+
+
+    <!-- Subhead
+    ================================================== -->
+    <header class="masthead subhead">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1> {{ uppercase title }} </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page content
+    ================================================== -->
     <div class="container">
-      <!-- pages -->
       {{> body }}
-
-      <script src="{{assets}}/highlight.js"></script>
     </div>
+
+    <script src="{{assets}}/js/highlight.js"></script>
   </body>
 </html>

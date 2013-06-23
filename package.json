@@ -1,14 +1,26 @@
 {
   "name": "grunt-assemble-init",
-  "version": "0.1.0",
-  "description": "Create an example project for Assemble.",
-  "main": "template.js",
+  "version": "0.2.0",
+  "description": "Initialize an Assemble project.",
+  "homepage": "https://github.com/assemble/assemble/",
+  "author": {
+    "name": "Jon Schlinkert"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/assemble/grunt-init-assemble.git"
+    "url": "git://github.com/assemble/grunt-init-assemble.git"
   },
-  "author": "",
-  "license": "MIT",
-  "gitHead": "88e641d8b6b0c12e3fd4119f83701da002a4b5c9",
-  "readmeFilename": "README.md"
+  "bugs": {
+    "url": "https://github.com/assemble/assemble/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/assemble/assemble/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "template.js",
+  "dependencies": {
+    "grunt": "~0.4.1"
+  }
 }
