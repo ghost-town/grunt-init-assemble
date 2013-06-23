@@ -1,5 +1,5 @@
 {
-  "name": "grunt-assemble-init",
+  "name": "grunt-init-assemble",
   "version": "0.2.0",
   "description": "Initialize an Assemble project.",
   "homepage": "https://github.com/assemble/assemble/",
@@ -11,12 +11,12 @@
     "url": "git://github.com/assemble/grunt-init-assemble.git"
   },
   "bugs": {
-    "url": "https://github.com/assemble/assemble/issues"
+    "url": "https://github.com/assemble/grunt-init-assemble/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/assemble/blob/master/LICENSE-MIT"
+      "url": "https://github.com/assemble/grunt-init-assemble/blob/master/LICENSE-MIT"
     }
   ],
   "main": "template.js",
