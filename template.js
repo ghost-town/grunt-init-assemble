@@ -8,10 +8,7 @@
 
 'use strict';
 
-var grunt = require('grunt');
-var _     = grunt.util._; // lodash
 var path  = require('path');
-
 
 // Basic template description.
 exports.description = 'Create a project with Assemble and Grunt, including starter templates and data.';
@@ -33,6 +30,8 @@ exports.warnOn = ['*'];
 
 // The actual init template.
 exports.template = function(grunt, init, done) {
+
+  var _ = grunt.util._; // lodash
 
   // Internal lib
   _.mixin(require('./lib/mixins').init(grunt));
