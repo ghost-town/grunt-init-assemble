@@ -7,7 +7,7 @@
 If you have `grunt-init` and are familiar with using it:
 
 ``` bash
-git clone git@github.com:assemble/assemble-init.git ~/.grunt-init/grunt-init-assemble
+git clone git@github.com:assemble/assemble-init.git ~/.grunt-init/assemble
 ```
 
 Then, in empty directory:
@@ -29,7 +29,7 @@ npm i -g grunt-cli grunt-init
 Once grunt-init is installed, place this template in your `~/.grunt-init/` directory. It's recommended that you use `git clone` to install this template into that directory as follows:
 
 ``` bash
-git clone git@github.com:assemble/assemble-init.git ~/.grunt-init/assemble-init
+git clone git@github.com:assemble/assemble-init.git ~/.grunt-init/assemble
 ```
 
 _(Windows users, see [the documentation][grunt-init] for the correct destination directory path)_
