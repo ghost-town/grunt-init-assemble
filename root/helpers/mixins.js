@@ -13,19 +13,20 @@ exports.init = function(grunt) {
   var exports = {};
 
 
-  /*
-   * The Mixins
-   */
   _.mixin({
 
-    // Slugify a string. Makes lowercase, and converts dots and spaces to dashes.
+
+    /*
+     * _.slugifier
+     * Slugify a string. Makes lowercase, and converts
+     * dots and spaces to dashes.
+     */
     slugifier: function(urlString) {
       return urlString.replace(/ /g, '-').replace(/\./, '').toLowerCase();
     }
 
+
+
   });
-
-
-
   return exports;
 };
