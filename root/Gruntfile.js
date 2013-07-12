@@ -1,7 +1,7 @@
 /*
  * {%= name %}
- * https://github.com/assemble/{%= name %}
- * Copyright (c) {%= grunt.template.today('yyyy') %} 
+ * https://github.com/{%= author_name %}/{%= name %}
+ * Copyright (c) {%= grunt.template.today('yyyy') %}
  * Licensed under the {%= licenses.join(', ') %} license{%= licenses.length === 1 ? '' : 's' %}.
  */
 
@@ -9,25 +9,39 @@
 
 module.exports = function(grunt) {
 
+  var _ = grunt.util._;
+  _.mixin(require('./helpers/mixins').init(grunt));
+
   // Project configuration.
   grunt.initConfig({
 
+    jshint: {
+      all: ['Gruntfile.js', 'src/helpers/helper*.js', 'test/*.js'],
+      options: {
+        jshintrc: '.jshintrc'
+      }
+    },
     assemble: {
       pages: {
         options: {
           flatten: true,
           assets: 'dest/assets',
+          helpers: ['helpers/helper-*.js'],
           layout: 'src/templates/layouts/default.hbs',
-          data: 'src/data/*.{json,yml}',
-          partials: 'src/templates/partials/*.hbs'
+          data: [
+            'src/data/*.{json,yml}'
+          ],
+          partials: [
+            'src/templates/partials/*.hbs'
+          ]
         },
         files: {
-          'dest/': ['src/templates/pages/*.hbs']
+          'dest/': ['test/example.hbs', 'src/templates/pages/*.hbs']
         }
       }
     },
 
-    // Before generating any new files, 
+    // Before generating any new files,
     // remove any previously-created files.
     clean: {
       example: ['dest/**/*.html']
@@ -37,8 +51,9 @@ module.exports = function(grunt) {
   // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default tasks to be run.
-  grunt.registerTask('default', ['clean', 'assemble']);
+  grunt.registerTask('default', ['clean', 'jshint', 'assemble']);
 };
 

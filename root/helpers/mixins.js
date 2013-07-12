@@ -8,18 +8,24 @@
 
 'use strict';
 
-
 exports.init = function(grunt) {
   var _ = grunt.util._; // lodash
   var exports = {};
 
+
+  /*
+   * The Mixins
+   */
   _.mixin({
 
-    // Fix path in sublime-project file.
-    sublimePath: function(urlString) {
-      return urlString.replace(/\\/g, '/').replace(/\:/, '');
+    // Slugify a string. Makes lowercase, and converts dots and spaces to dashes.
+    slugifier: function(urlString) {
+      return urlString.replace(/ /g, '-').replace(/\./, '').toLowerCase();
     }
 
   });
+
+
+
   return exports;
 };

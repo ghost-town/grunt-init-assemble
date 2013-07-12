@@ -1,4 +1,5 @@
 {
+  "src/helpers/name.js": "src/helpers/helper-{%= name %}.js",
   "src/data/name.json": "src/data/{%= name %}.json",
   "src/data/name.yml": "src/data/{%= name %}.yml",
   "name.sublime-project": "{%= name %}.sublime-project"
