@@ -9,8 +9,7 @@
 
 module.exports = function(grunt) {
 
-  var _ = grunt.util._;
-  _.mixin(require('./helpers/mixins').init(grunt));
+  grunt.util._.mixin(require('./helpers/mixins').init(grunt));
 
   // Project configuration.
   grunt.initConfig({
