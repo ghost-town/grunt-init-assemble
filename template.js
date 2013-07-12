@@ -18,7 +18,7 @@ exports.notes = 'For more information about creating Assemble projects, ' +
   'please see the docs at http://assemble.io/docs/';
 
 // Template-specific notes to be displayed after question prompts.
-exports.after = 'Now install project dependencies with "npm install".' + 
+exports.after = 'Now install project dependencies with "npm install".' +
   'After that, you may execute project tasks with "grunt assemble". For ' +
   'more information about installing and configuring Assemble, please ' +
   'visit:' +
@@ -31,12 +31,10 @@ exports.warnOn = ['*'];
 // The actual init template.
 exports.template = function(grunt, init, done) {
 
-  var _ = grunt.util._; // lodash
-
   // Use lodash mixin to create sublime text project file
-  // when a new project is created. Delete them if you don't 
+  // when a new project is created. Delete them if you don't
   // need them ;-)
-  _.mixin(require('./lib/mixins').init(grunt));
+  grunt.util._.mixin(require('./lib/mixins').init(grunt));
 
   init.process({type: 'assemble'}, [
     // Prompt for these values.
@@ -44,15 +42,14 @@ exports.template = function(grunt, init, done) {
     {
       name: 'description',
       message: 'Description',
-      default: 'Assemble a website from templates and data.',
+      default: 'Use Assemble to generate sites, components and documentation.',
       warning: 'May consist of any characters.'
     },
     init.prompt('version'),
     init.prompt('author_name'),
+    init.prompt('author_url'),
     init.prompt('repository'),
     init.prompt('homepage'),
-    init.prompt('author_email'),
-    init.prompt('author_url'),
     init.prompt('bugs'),
     init.prompt('licenses'),
     init.prompt('grunt_version'),
@@ -71,11 +68,11 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
 
     // Set a few grunt-plugin-specific properties.
-    props.repository = 'git://github.com/' + props.author_name + '/' + props.name + '.git';
-    props.hompage    = 'https://github.com/' + props.author_name + '/' + props.name + '/';
+    props.hompage    = 'https://github.com/assemble/' + props.name + '/';
+    props.repository = 'https://github.com/assemble/' + props.name + '.git';
     props.main       = 'Gruntfile.js';
-    props.npm_test   = 'grunt assemble';
-    props.keywords   = ['gruntplugin', 'build', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
+    props.npm_test   = 'grunt test';
+    props.keywords   = ['grunt task', 'build', 'handlebars helper', 'underscore mixin', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
       'grunt-contrib-jshint': '~0.6.0',
       'grunt-contrib-clean': '~0.4.1',

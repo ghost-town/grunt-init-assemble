@@ -9,13 +9,13 @@
 
 module.exports = function(grunt) {
 
-  grunt.util._.mixin(require('./helpers/mixins').init(grunt));
+  grunt.util._.mixin(require('./helpers/mixins.js').init(grunt));
 
   // Project configuration.
   grunt.initConfig({
 
     jshint: {
-      all: ['Gruntfile.js', 'src/helpers/helper*.js', 'test/*.js'],
+      all: ['Gruntfile.js', 'helpers/*.js', 'test/*.js'],
       options: {
         jshintrc: '.jshintrc'
       }
