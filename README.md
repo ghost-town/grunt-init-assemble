@@ -33,15 +33,6 @@ Now that `grunt init` is intalled. At the command-line, cd into an empty directo
 _Note that this template will generate files in the current directory, so be sure to change to a new directory first._
 
 
-## What this project contains
-
-In the the `test` directory you will find the following files:
-
-* `example.hbs`: this is an example template, which contains code for both an example helper and a starting point for your new custom helper.
-* `example.json`: this is the data file used by the helper
-* `helper-example.js`: umm...
-
-
 ## Related info
 
 * [grunt-init-helper](https://github.com/assemble/grunt-init-helper): generate new Handlebars helpers for Assemble.
