@@ -9,7 +9,7 @@
 
 module.exports = function(grunt) {
 
-  grunt.util._.mixin(require('./helpers/mixins.js').init(grunt));
+  grunt.util._.mixin(require('./src/helpers/mixins.js').init(grunt));
 
   // Project configuration.
   grunt.initConfig({
@@ -24,18 +24,19 @@ module.exports = function(grunt) {
       pages: {
         options: {
           flatten: true,
-          assets: 'dest/assets',
-          helpers: ['helpers/helper-*.js'],
+          assets: './assets',
+          helpers: ['src/helpers/helper-*.js'],
           layout: 'src/templates/layouts/default.hbs',
           data: [
-            'src/data/*.{json,yml}'
+            'src/data/*.{json,yml}',
+            'package.json'
           ],
           partials: [
             'src/templates/partials/*.hbs'
           ]
         },
         files: {
-          'dest/': ['test/example.hbs', 'src/templates/pages/*.hbs']
+          './': ['src/templates/pages/*.hbs']
         }
       }
     },
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
     // Before generating any new files,
     // remove any previously-created files.
     clean: {
-      example: ['dest/**/*.html']
+      example: ['./*.html']
     }
   });
 

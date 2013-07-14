@@ -860,7 +860,7 @@ input.focused {
   .bs-sidebar.affix {
     position: fixed;
     /* Undo the static from mobile-first approach */
-  
+
     top: 50px;
     width: 160px;
   }
@@ -868,7 +868,7 @@ input.focused {
   .bs-top {
     display: block;
     /* Unhide */
-  
+
     float: left;
     padding: 7px 15px;
     font-weight: 500;
@@ -3121,8 +3121,8 @@ input[type="button"].btn-block {
   border-color: #d8d8d8;
 }
 .panel-docs {
-  padding: 30px;
-  padding-top: 70px;
+  min-height: 1200px;
+  padding: 70px 50px;
   border-radius: 0;
   border: none;
   -webkit-box-shadow: 0;
@@ -3550,7 +3550,6 @@ input[type="button"].btn-block {
 }
 .navbar-brand {
   display: block;
-  max-width: 200px;
   margin-left: auto;
   margin-right: auto;
   padding: 15px;

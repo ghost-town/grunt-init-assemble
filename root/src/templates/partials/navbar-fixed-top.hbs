@@ -1,12 +1,12 @@
 ---
 component: navbar
 ---
-<!-- Navbar component
-================================================== -->
+{{! Navbar component
+================================================== }}
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="navbar-brand" href="{{relative this.dest "dest/index.html"}}">ASSEMBLE</a>
+      <a class="navbar-brand" href="{{relative this.dest "index.html"}}">{{uppercase package.name}}</a>
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -14,10 +14,12 @@ component: navbar
       </button>
       <div class="nav-collapse collapse bs-navbar-collapse">
         <ul class="nav navbar-nav pull-right">
-          <li{{#is title "Blog"}} class="active"{{/is}}>
-            <a href="{{relative this.dest "dest/blog.html"}}">Blog</a>
+          {{#is basename "markdown"}}
+          <li{{#is title "Markdown"}} class="active"{{/is}}>
+            <a href="{{relative this.dest "markdown.html"}}">Markdown</a>
           </li>
-          <li> <a href="https://github.com/upstage/mixins/">GitHub Repo</a> </li>
+          {{/is}}
+          <li> <a href="{{package.homepage}}">GitHub Repo</a> </li>
         </ul>
       </div>
     </div>
