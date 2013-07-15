@@ -1,6 +1,6 @@
 {
   "name": "grunt-init-assemble",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Initialize new Assemble projects, with example mixins, helpers, templates and data.",
   "homepage": "https://github.com/assemble/assemble/",
   "author": {
