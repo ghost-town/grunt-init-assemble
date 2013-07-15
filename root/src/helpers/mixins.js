@@ -23,6 +23,11 @@ exports.init = function(grunt) {
      */
     slugifier: function(urlString) {
       return urlString.replace(/ /g, '-').replace(/\./, '').toLowerCase();
+    },
+
+    /* _.componentize: Converts dashes to spaces, and 'css' to 'CSS' */
+    componentize: function(str) {
+      return str.replace(/-/g, ' ').replace(/css/g, 'CSS');
     }
 
 

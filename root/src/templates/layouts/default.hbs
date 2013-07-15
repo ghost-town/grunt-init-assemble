@@ -10,7 +10,7 @@
 
     {{! Navbar
     ================================================== }}
-    {{> navbar-fixed-top }}
+    {{> navbar }}
 
 
     {{! Subhead
@@ -19,7 +19,7 @@
       <div class="container">
         <div class="row">
           <div class="col col-lg-12">
-            <h1> {{ uppercase title }} </h1>
+            <h1> DOCS / {{ uppercase title }} </h1>
           </div>
         </div>
       </div>
@@ -28,7 +28,9 @@
     {{! Page content
     ================================================== }}
     <div class="container">
-      {{> body }}
+      <div class="panel panel-docs">
+        {{> body }}
+      </div>
     </div>
 
     <script src="{{assets}}/highlight.js"></script>

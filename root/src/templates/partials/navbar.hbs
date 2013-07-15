@@ -14,11 +14,9 @@ component: navbar
       </button>
       <div class="nav-collapse collapse bs-navbar-collapse">
         <ul class="nav navbar-nav pull-right">
-          {{#is basename "markdown"}}
           <li{{#is title "Markdown"}} class="active"{{/is}}>
             <a href="{{relative this.dest "markdown.html"}}">Markdown</a>
           </li>
-          {{/is}}
           <li> <a href="{{package.homepage}}">GitHub Repo</a> </li>
         </ul>
       </div>
