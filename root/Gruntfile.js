@@ -15,7 +15,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     jshint: {
-      all: ['Gruntfile.js', 'helpers/*.js', 'test/*.js'],
+      all: ['Gruntfile.js', 'src/helpers/*.js', 'test/*.js'],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -27,18 +27,19 @@ module.exports = function(grunt) {
           assets: './assets',
           helpers: ['src/helpers/helper-*.js'],
           layout: 'src/templates/layouts/default.hbs',
-          data: [
-            'src/data/*.{json,yml}',
-            'package.json'
-          ],
-          partials: [
-            'src/templates/partials/*.hbs'
-          ]
+          data: ['src/data/*.{json,yml}', 'package.json'],
+          partials: ['src/templates/partials/*.hbs']
         },
         files: {
           './': ['src/templates/pages/*.hbs']
         }
       }
+    },
+
+    // Prettify test HTML pages from Assemble task.
+    prettify: {
+      options: {prettifyrc: '.prettifyrc'},
+      all: {expand: true, cwd: './', ext: '.html', src: ['*.html'], dest: './'}
     },
 
     // Before generating any new files,
@@ -50,10 +51,11 @@ module.exports = function(grunt) {
 
   // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-prettify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default tasks to be run.
-  grunt.registerTask('default', ['clean', 'jshint', 'assemble']);
+  grunt.registerTask('default', ['clean', 'jshint', 'assemble', 'prettify']);
 };
 
