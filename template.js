@@ -74,6 +74,7 @@ exports.template = function(grunt, init, done) {
     props.npm_test   = 'grunt test';
     props.keywords   = ['grunt task', 'build', 'handlebars helper', 'underscore mixin', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
+      'grunt-prettify': '~0.1.5',
       'grunt-contrib-jshint': '~0.6.0',
       'grunt-contrib-clean': '~0.4.1',
       'assemble': props.assemble_version
