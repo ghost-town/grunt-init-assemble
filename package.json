@@ -1,7 +1,7 @@
 {
   "name": "grunt-init-assemble",
-  "version": "0.2.6",
-  "description": "Initialize new Assemble projects, with example mixins, helpers, templates and data.",
+  "version": "0.3.0",
+  "description": "Initialize new Assemble projects, with example lodash mixins, handlebars helpers, templates and data.",
   "homepage": "https://github.com/assemble/assemble/",
   "author": {
     "name": "Jon Schlinkert",
