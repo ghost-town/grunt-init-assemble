@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>{{title}} | {{site.title}}</title>
-    <link rel="stylesheet" href="{{assets}}/assemble.css">
+    <link rel="stylesheet" href="{{assets}}/{{stylesheet}}.css">
     <link rel="stylesheet" href="{{assets}}/github.css">
   </head>
-  <body>
+  <body {{#is stylesheet "bootstrap"}}style="padding-top: 40px;"{{/is}}>
 
     {{! Navbar
     ================================================== }}
@@ -15,7 +15,7 @@
 
     {{! Subhead
     ================================================== }}
-    <header class="masthead subhead">
+    <header class="{{#is stylesheet "bootstrap"}}jumbotron {{/is}}{{#is stylesheet "assemble"}}masthead {{/is}}subhead">
       <div class="container">
         <div class="row">
           <div class="col col-lg-12">

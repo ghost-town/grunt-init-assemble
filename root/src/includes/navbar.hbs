@@ -3,21 +3,21 @@ component: navbar
 ---
 {{! Navbar component
 ================================================== }}
-<div class="navbar navbar-fixed-top">
+<div class="navbar {{#is stylesheet "bootstrap"}}navbar-inverse{{/is}} navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="navbar-brand" href="{{relative this.dest "index.html"}}">{{#if package.name}}{{ uppercase package.name }}{{else}}ASSEMBLE{{/if}}</a>
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="nav-collapse">
+      <button class="navbar-toggle btn btn-navbar" type="button" data-toggle="collapse" data-target="nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <a class="navbar-brand brand" href="{{relative page.dest "docs/index.html"}}">{{#if package.name}}{{ uppercase package.name }}{{else}}ASSEMBLE{{/if}}</a>
       <div class="nav-collapse collapse bs-navbar-collapse">
         <ul class="nav navbar-nav pull-right">
           <li{{#is basename "markdown"}} class="active"{{/is}}>
-            <a href="{{relative this.dest "markdown.html"}}">Markdown</a>
+            <a href="{{relative page.dest "docs/markdown.html"}}">Markdown</a>
           </li>
-          <li> <a href="{{package.homepage}}">GitHub Repo</a> </li>
+          <li> <a href="http://assemble.io/docs/">Assemble Docs</a> </li>
         </ul>
       </div>
     </div>
