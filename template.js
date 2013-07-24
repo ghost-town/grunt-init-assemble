@@ -38,11 +38,11 @@ exports.template = function(grunt, init, done) {
 
   init.process({type: 'assemble'}, [
     // Prompt for these values.
-    init.prompt('name', 'foo'),
+    init.prompt('name', 'site'),
     {
       name: 'description',
       message: 'Description',
-      default: 'Use Assemble to generate sites, components and documentation.',
+      default: 'Boilerplate for generating a site with Assemble.',
       warning: 'May consist of any characters.'
     },
     init.prompt('version'),
@@ -56,7 +56,7 @@ exports.template = function(grunt, init, done) {
     {
       name: 'assemble_version',
       message: 'What versions of Assemble does it require?',
-      default: '~0.4.0',
+      default: '~0.4.1',
       warning: 'Must be a valid semantic version range descriptor.'
     },
     {
@@ -74,10 +74,12 @@ exports.template = function(grunt, init, done) {
     props.npm_test   = 'grunt test';
     props.keywords   = ['grunt task', 'build', 'handlebars helper', 'underscore mixin', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
-      'grunt-prettify': '~0.1.5',
-      'grunt-contrib-jshint': '~0.6.0',
+      'assemble': props.assemble_version,
+      'assemble-less': '~0.4.8',
       'grunt-contrib-clean': '~0.4.1',
-      'assemble': props.assemble_version
+      'grunt-contrib-jshint': '~0.6.0',
+      'grunt-contrib-watch': '~0.5.1',
+      'grunt-prettify': '~0.1.5'
     };
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '0.8';
