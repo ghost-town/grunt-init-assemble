@@ -9,27 +9,17 @@
 'use strict';
 
 exports.init = function(grunt) {
-  var _ = grunt.util._; // lodash
   var exports = {};
 
-
-  _.mixin({
-
+  grunt.util._.mixin({
 
     /*
-     * _.slugifier
-     * Slugify a string. Makes lowercase, and converts
-     * dots and spaces to dashes.
+     * _.slugify
+     * Slugify a string. Makes lowercase, and converts dots and spaces to dashes.
      */
-    slugifier: function(urlString) {
-      return urlString.replace(/ /g, '-').replace(/\./, '').toLowerCase();
-    },
-
-    /* _.componentize: Converts dashes to spaces, and 'css' to 'CSS' */
-    componentize: function(str) {
-      return str.replace(/-/g, ' ').replace(/css/g, 'CSS');
+    slugify: function(urlString) {
+      return urlString.replace(/ /g, '-').replace(/\./, '-').toLowerCase();
     }
-
 
 
   });
