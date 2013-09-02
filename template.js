@@ -81,7 +81,7 @@ exports.template = function(grunt, init, done) {
       'grunt-contrib-clean': '~0.4.1',
       'grunt-contrib-jshint': '~0.6.0',
       'grunt-contrib-watch': '~0.5.1',
-      'js-beautify': '~1.4.0'
+      'prettify': '~0.1.2'
     };
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '0.8';
