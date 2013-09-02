@@ -35,6 +35,7 @@ _Note that this template will generate files in the current directory, so be sur
 
 ## Related info
 
+
 * [grunt-init-helper](https://github.com/assemble/grunt-init-helper): generate new Handlebars helpers for Assemble.
 * [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
 * [Assemble's documentation](http://assemble.io)

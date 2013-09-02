@@ -1,6 +1,6 @@
 {
   "name": "{%= name %}",
   "dependencies": {
-    "bootstrap": "twitter/bootstrap"
+    "bootstrap": "~3.0.0"
   }
 }

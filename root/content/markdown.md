@@ -1,4 +1,9 @@
-# Typography 
+> Example of a markdown file, compiled to HTML.
+
+<br>
+<br>
+
+# Typography
 
 ## Headings
 
@@ -39,7 +44,7 @@ HTML:
 <br>
 
 
-## Body Copy 
+## Body Copy
 
 Body copy written as normal, plain text will be wrapped with `<p></p>` tags in the rendered HTML.
 
@@ -99,10 +104,10 @@ and this HTML:
 ## Blockquotes
 For quoting blocks of content from another source within your document.
 
-Add `>` before any text you want to quote. 
+Add `>` before any text you want to quote.
 
 ``` markdown
-Add `>` before any text you want to quote. 
+Add `>` before any text you want to quote.
 ```
 
 Renders to:
@@ -120,22 +125,22 @@ and this HTML:
 Blockquotes can also be nested:
 
 ``` markdown
-> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. 
-Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. 
->> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor 
+> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+>> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
 odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
->>> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. 
-Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. 
+>>> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
 ```
 
 Renders to:
 
-> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. 
-Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. 
->> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor 
+> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
+>> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
 odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
->>> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. 
-Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. 
+>>> Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.
+Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
 
 
 <br>
@@ -276,7 +281,7 @@ Or indent several lines of code by at least four spaces, as in:
 
 ### Block code "fences"
 
-Use "fences"  ```` ``` ```` to block in multiple lines of code. 
+Use "fences"  ```` ``` ```` to block in multiple lines of code.
 
 <pre>
 ``` html

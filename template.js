@@ -38,7 +38,7 @@ exports.template = function(grunt, init, done) {
 
   init.process({type: 'assemble'}, [
     // Prompt for these values.
-    init.prompt('name', 'site'),
+    init.prompt('name'),
     {
       name: 'description',
       message: 'Description',
@@ -48,6 +48,7 @@ exports.template = function(grunt, init, done) {
     init.prompt('version'),
     init.prompt('author_name'),
     init.prompt('author_url'),
+    init.prompt('username', 'assemble'),
     init.prompt('repository'),
     init.prompt('homepage'),
     init.prompt('bugs'),
@@ -56,7 +57,7 @@ exports.template = function(grunt, init, done) {
     {
       name: 'assemble_version',
       message: 'What versions of Assemble does it require?',
-      default: '~0.4.1',
+      default: '~0.4.2',
       warning: 'Must be a valid semantic version range descriptor.'
     },
     {
@@ -75,11 +76,12 @@ exports.template = function(grunt, init, done) {
     props.keywords   = ['grunt task', 'build', 'handlebars helper', 'underscore mixin', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
     props.devDependencies = {
       'assemble': props.assemble_version,
-      'assemble-less': '~0.4.8',
+      'assemble-less': '~0.5.0',
+      'assemble-internal': '~0.2.0',
       'grunt-contrib-clean': '~0.4.1',
       'grunt-contrib-jshint': '~0.6.0',
       'grunt-contrib-watch': '~0.5.1',
-      'grunt-prettify': '~0.1.5'
+      'js-beautify': '~1.4.0'
     };
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '0.8';
