@@ -48,7 +48,7 @@ Editor preferences are available in the [editor config](.editorconfig) for easy 
 
 ## Release History
 
- * 2013-08-28   v0.1.0   First commit
+ * {%= grunt.template.today('yyyy') %}   v0.1.0   First commit
 
 
 ## License

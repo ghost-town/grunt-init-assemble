@@ -39,12 +39,8 @@ exports.template = function(grunt, init, done) {
   init.process({type: 'assemble'}, [
     // Prompt for these values.
     init.prompt('name'),
-    {
-      name: 'description',
-      message: 'Description',
-      default: 'Boilerplate for generating a site with Assemble.',
-      warning: 'May consist of any characters.'
-    },
+    init.prompt('username', 'assemble'),
+    init.prompt('description'),
     init.prompt('version'),
     init.prompt('author_name'),
     init.prompt('author_url'),
@@ -53,7 +49,8 @@ exports.template = function(grunt, init, done) {
     init.prompt('homepage'),
     init.prompt('bugs'),
     init.prompt('licenses'),
-    init.prompt('grunt_version'),
+    init.prompt('main'),
+    init.prompt('grunt_version', '~0.4.2'),
     {
       name: 'assemble_version',
       message: 'What versions of Assemble does it require?',
@@ -69,8 +66,8 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
 
     // Set a few grunt-plugin-specific properties.
-    props.hompage    = 'https://github.com/assemble/' + props.name + '/';
-    props.repository = 'https://github.com/assemble/' + props.name + '.git';
+    props.hompage    = 'https://github.com/' + props.username + '/' + props.name + '/';
+    props.repository = 'https://github.com/' + props.username + '/' + props.name + '.git';
     props.main       = 'Gruntfile.js';
     props.npm_test   = 'grunt test';
     props.keywords   = ['grunt task', 'build', 'handlebars helper', 'underscore mixin', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
@@ -81,7 +78,8 @@ exports.template = function(grunt, init, done) {
       'grunt-contrib-clean': '~0.4.1',
       'grunt-contrib-jshint': '~0.6.0',
       'grunt-contrib-watch': '~0.5.1',
-      'prettify': '~0.1.2'
+      'helper-prettify': '~0.1.2',
+      'resolve-dep': '~0.1.0'
     };
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '0.8';
