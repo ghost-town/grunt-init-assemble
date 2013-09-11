@@ -1,4 +1,4 @@
-# grunt-init-assemble
+# grunt-init-assemble [![NPM version](https://badge.fury.io/js/{%= name %}.png)](http://badge.fury.io/js/{%= name %})
 
 > Quickly launch Assemble-based projects using [grunt-init][], including starter templates and data.
 
