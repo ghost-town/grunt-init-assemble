@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
     // Lint JavaScript
     jshint: {
-      all: ['Gruntfile.js', 'templates/helpers/*.js'],
+      all: ['Gruntfile.js', 'helpers/*.js'],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -29,9 +29,9 @@ module.exports = function(grunt) {
         flatten: true,
         assets: '_demo/assets',
         partials: ['templates/includes/*.hbs'],
-        helpers: ['templates/helpers/helper-*.js'],
+        helpers: ['helpers/*.js'],
         layout: 'templates/layouts/default.hbs',
-        data: ['templates/data/*.{json,yml}']
+        data: ['data/*.{json,yml}']
       },
       example: {
         files: {'_demo/': ['templates/*.hbs']}
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     // Before generating any new files,
     // remove any previously-created files.
     clean: {
-      example: ['docs/*.html']
+      example: ['_demo/*.html']
     },
 
     watch: {
@@ -75,18 +75,17 @@ module.exports = function(grunt) {
   });
 
   // Load npm plugins to provide necessary tasks.
-  grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('assemble-less');
-  grunt.loadNpmTasks('assemble-internal');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-readme');
+  grunt.loadNpmTasks('assemble-less');
+  grunt.loadNpmTasks('assemble');
 
   // Build HTML, compile LESS and watch for changes. You must first run "bower install"
   // or install Bootstrap to the "vendor" directory before running this command.
   grunt.registerTask('design', ['clean', 'assemble', 'less:bootstrap', 'watch:design']);
 
   // Default tasks to be run.
-  grunt.registerTask('default', ['clean', 'jshint', 'assemble']);
-  grunt.registerTask('docs',    ['assemble-internal']);
+  grunt.registerTask('default', ['clean', 'jshint', 'assemble', 'readme']);
 };

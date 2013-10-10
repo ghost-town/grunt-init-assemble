@@ -31,12 +31,7 @@ exports.warnOn = ['*'];
 // The actual init template.
 exports.template = function(grunt, init, done) {
 
-  // Use lodash mixin to create sublime text project file
-  // when a new project is created. Delete them if you don't
-  // need them ;-)
-  grunt.util._.mixin(require('./lib/mixins').init(grunt));
-
-  init.process({type: 'assemble'}, [
+  init.process({type: 'node'}, [
     // Prompt for these values.
     init.prompt('name'),
     init.prompt('username', 'assemble'),
@@ -54,7 +49,7 @@ exports.template = function(grunt, init, done) {
     {
       name: 'assemble_version',
       message: 'What versions of Assemble does it require?',
-      default: '~0.4.2',
+      default: '~0.4.12',
       warning: 'Must be a valid semantic version range descriptor.'
     },
     {
@@ -66,21 +61,28 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
 
     // Set a few grunt-plugin-specific properties.
-    props.hompage    = 'https://github.com/' + props.username + '/' + props.name + '/';
+    props.homepage   = 'https://github.com/' + props.username + '/' + props.name;
+    props.author_url = 'https://github.com/' + props.username;
     props.repository = 'https://github.com/' + props.username + '/' + props.name + '.git';
-    props.main       = 'Gruntfile.js';
-    props.npm_test   = 'grunt test';
-    props.keywords   = ['grunt task', 'build', 'handlebars helper', 'underscore mixin', 'site generator', 'component generator', 'blog generator', 'handlebars', 'templates'];
+    props.bugs       = 'https://github.com/' + props.username + '/' + props.name + '/issues';
     props.devDependencies = {
       'assemble': props.assemble_version,
       'assemble-less': '~0.5.0',
-      'assemble-internal': '~0.2.0',
       'grunt-contrib-clean': '~0.4.1',
       'grunt-contrib-jshint': '~0.6.0',
       'grunt-contrib-watch': '~0.5.1',
-      'helper-prettify': '~0.1.2',
-      'resolve-dep': '~0.1.0'
+      'grunt-readme': '~0.1.0'
     };
+    props.keywords = [
+      'static site generator',
+      'yeoman static site generator',
+      'grunt static site generator',
+      'site generator',
+      'component generator',
+      'blog generator',
+      'handlebars',
+      'templates'
+    ];
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '0.8';
 
