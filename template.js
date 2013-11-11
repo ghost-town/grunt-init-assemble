@@ -68,7 +68,7 @@ exports.template = function(grunt, init, done) {
     props.devDependencies = {
       'assemble': props.assemble_version,
       'assemble-less': '~0.5.0',
-      'grunt-contrib-clean': '~0.4.1',
+      'grunt-contrib-clean': '~0.5.0',
       'grunt-contrib-jshint': '~0.6.0',
       'grunt-contrib-watch': '~0.5.1',
       'grunt-readme': '~0.1.0'

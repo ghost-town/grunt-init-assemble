@@ -27,14 +27,14 @@ module.exports = function(grunt) {
       options: {
         pkg: '<%= pkg %>',
         flatten: true,
-        assets: '_demo/assets',
+        assets: '_gh_pages/assets',
         partials: ['templates/includes/*.hbs'],
-        helpers: ['helpers/*.js'],
+        helpers: ['templates/helpers/*.js'],
         layout: 'templates/layouts/default.hbs',
         data: ['data/*.{json,yml}']
       },
       example: {
-        files: {'_demo/': ['templates/*.hbs']}
+        files: {'_gh_pages/': ['templates/*.hbs']}
       }
     },
 
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     // Before generating any new files,
     // remove any previously-created files.
     clean: {
-      example: ['_demo/*.html']
+      example: ['_gh_pages/*.html']
     },
 
     watch: {
