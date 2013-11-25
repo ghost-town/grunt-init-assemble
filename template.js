@@ -39,7 +39,6 @@ exports.template = function(grunt, init, done) {
     init.prompt('version'),
     init.prompt('author_name'),
     init.prompt('author_url'),
-    init.prompt('username', 'assemble'),
     init.prompt('repository'),
     init.prompt('homepage'),
     init.prompt('bugs'),
