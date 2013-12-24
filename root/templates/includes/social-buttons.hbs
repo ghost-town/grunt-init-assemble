@@ -1,16 +1,10 @@
 <div class="bs-social">
   <ul class="bs-social-buttons">
-    <li>
-      {{ghbtn size="small" user="assemble" repo="assemble"}}
-    </li>
-    <li>
-      {{ghbtn size="small" user="assemble" repo="assemble" type="fork"}}
-    </li>
-    <li class="follow-btn">
-      {{follow user="assemblejs"}}
-    </li>
+    <li> {{ghbtn user=site.username repo=site.name}} </li>
+    <li> {{ghbtn user=site.username repo=site.name type="fork"}} </li>
+    <li class="follow-btn"> {{follow user="assemblejs"}} </li>
     <li class="tweet-btn">
-      {{tweet url="http://assemble.io" via="assemblejs" related="jonschlinkert:Assemble core team."}}
+      {{tweet url=site.url.domain via=site.social.twitter.via related=site.social.twitter.related}}
     </li>
   </ul>
 </div>

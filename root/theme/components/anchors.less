@@ -1,0 +1,32 @@
+//
+// Anchors
+// --------------------------------------------------
+
+.anchor {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  display: block;
+  font-size: 16px;
+  color: #000;
+  padding: 10px;
+  margin: 0 0 -5px -30px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  .glyphicon {
+    display: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  &:hover .anchor {
+    text-decoration: none;
+  }
+  &:hover .anchor .glyphicon {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,103 @@
+# =============================================
+# Build config
+# =============================================
+
+root:             _gh_pages
+dest:             <%= site.root %>
+assets:           <%= site.dest %>/assets
+
+# Data
+data:             data/*.{json,yml}
+
+# Templates
+templates:        templates
+includes:         <%= site.templates %>/includes/*.hbs
+layouts:          <%= site.templates %>/layouts
+layout:           default.hbs
+
+# Extensions
+helpers:          <%= site.templates %>/helpers/*.js
+plugins:
+  - assemble-contrib-anchors
+  - assemble-contrib-wordcount
+  - assemble-contrib-toc
+
+# Theme
+theme:            theme
+components:       <%= site.theme %>/components
+
+
+# =============================================
+# Project metadata
+# =============================================
+
+# Assemble metadata.
+assemble:
+  latest:         0.4.33  # change to <%= pkg.version %>
+
+# GitHub
+username:         assemble
+name:             assemble # change to <%= pkg.name %>
+download:
+  source:         <%= pkg.homepage %>/archive/master.zip
+
+
+# =============================================
+# Site metadata
+# =============================================
+
+brand:            ASSEMBLE
+title:            BOILERPLATE
+lead:             The most awe inspiring static site boilerplate in Northern Kentucky.
+
+version:          <%= pkg.version %>
+description:      <%= pkg.description %>
+license:
+  type:           <%= pkg.licenses[0].type %>
+  url:            <%= pkg.licenses[0].url %>
+
+
+# Links
+url:
+  repo:           <%= pkg.homepage %>
+  bugs:           <%= pkg.bugs.url %>?state=open
+  ghpages:        https://<%= site.username %>.github.io/<%= pkg.name %>/
+
+  # Site
+  domain:         http://assemble.io/
+  about:          <%= site.url.domain %>/about/
+  blog:           <%= site.url.domain %>/blog/
+
+
+# SEO/SEM
+ga:
+  id:             false
+  domain:         assemble.github.io
+  siteid:         false
+  # Google Tags (see: https://www.google.com/tagmanager/)
+  tags:           false
+
+# Comments
+disqus:
+  enabled:        true
+  shortname:      <%= pkg.name %>
+
+# Social
+social:
+  twitter:
+    via:          assemblejs
+    username:     assemblejs
+    related:      jonschlinkert:Assemble core team.
+  facebook:       false
+  linkedin:       false
+  gplus:          false
+  hn:             false
+  google:         false
+
+# Sharing
+sharing:
+  twitter:        false
+  facebook:       false
+  gplus:          false
+  hn:             false
+  google:         false

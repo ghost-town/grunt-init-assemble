@@ -1,0 +1,326 @@
+/*!
+ * This file has been stripped of a bunch of components used in the Bootstrap
+ * docs. The components are in the './components' directory along with some
+ * custom components. This is done as an example of how to quickly customize
+ * a theme using Bootstrap.
+ *
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Creative Commons Attribution 3.0 Unported License. For
+ * details, see http://creativecommons.org/licenses/by/3.0/.
+ */
+
+
+/*
+ * Bootstrap Documentation
+ * Special styles for presenting Bootstrap's documentation and code examples.
+ *
+ * Table of contents:
+ *
+ * Scaffolding
+ * Main navigation
+ * Footer
+ * Social buttons
+ * Homepage
+ * Page headers
+ * Old docs callout
+ * Ads
+ * Side navigation
+ * Docs sections
+ * Callouts
+ * Grid styles
+ * Examples
+ * Code snippets (highlight)
+ * Responsive tests
+ * Glyphicons
+ * Customizer
+ * Miscellaneous
+ */
+
+
+/*
+ * Scaffolding
+ *
+ * Update the basics of our documents to prep for docs content.
+ */
+
+body {
+  position: relative; /* For scrollyspy */
+  padding-top: 50px; /* Account for fixed navbar */
+}
+
+/* Keep code small in tables on account of limited space */
+.table code {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+/*
+ * Carbon ads
+ *
+ * Single display ad that shows on all pages (except homepage) in page headers.
+ * The hella `!important` is required for any pre-set property.
+ */
+
+.carbonad {
+  width: auto !important;
+  margin: 50px -30px -40px !important;
+  padding: 20px !important;
+  overflow: hidden; /* clearfix */
+  height: auto !important;
+  font-size: 13px !important;
+  line-height: 16px !important;
+  text-align: left;
+  background: #463265 !important;
+  border: 0 !important;
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.075);
+}
+.carbonad-img {
+  margin: 0 !important;
+}
+.carbonad-text,
+.carbonad-tag {
+  float: none !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  margin-left: 145px !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+.carbonad-text {
+  padding-top: 0 !important;
+}
+.carbonad-tag {
+  color: #cdbfe3 !important;
+  text-align: left !important;
+}
+.carbonad-text a,
+.carbonad-tag a {
+  color: #fff !important;
+}
+.carbonad #azcarbon > img {
+  display: none; /* hide what I assume are tracking images */
+}
+
+@media (min-width: 768px) {
+  .carbonad {
+    margin: 0 !important;
+    border-radius: 4px;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.075), 0 1px 0 rgba(255,255,255,.1);
+  }
+}
+
+@media (min-width: 992px) {
+  .carbonad {
+    position: absolute;
+    top: 20px;
+    right: 15px; /* 15px instead of 0 since box-sizing */
+    padding: 15px !important;
+    width: 330px !important;
+  }
+}
+
+/* Homepage variations */
+.bs-docs-home .carbonad {
+  margin: 0 -15px 40px !important;
+}
+@media (min-width: 480px) {
+  .bs-docs-home .carbonad {
+    width: 330px !important;
+    margin: 0 auto 40px !important;
+    border-radius: 4px;
+  }
+}
+@media (min-width: 768px) {
+  .bs-docs-home .carbonad {
+    float: left;
+    width: 330px !important;
+    margin: 0 0 30px !important;
+  }
+  .bs-docs-home .bs-social,
+  .bs-docs-home .bs-masthead-links {
+    margin-left: 350px;
+  }
+  .bs-docs-home .bs-social {
+    margin-bottom: 10px;
+  }
+  .bs-docs-home .bs-masthead-links {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .bs-docs-home .carbonad {
+    position: static;
+  }
+}
+@media (min-width: 1170px) {
+  .bs-docs-home .carbonad {
+    margin-top: -25px !important;
+  }
+}
+
+
+
+
+/*
+ * Docs sections
+ *
+ * Content blocks for each component or feature.
+ */
+
+/* Space things out */
+.bs-docs-section + .bs-docs-section {
+  padding-top: 40px;
+}
+
+/* Janky fix for preventing navbar from overlapping */
+h1[id] {
+  padding-top: 80px;
+  margin-top: -45px;
+}
+
+
+
+
+
+/*
+ * Grid examples
+ *
+ * Highlight the grid columns within the docs so folks can see their padding,
+ * alignment, sizing, etc.
+ */
+
+.show-grid {
+  margin-bottom: 15px;
+}
+.show-grid [class^="col-"] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+
+
+
+/*
+ * Customizer
+ *
+ * Since this is so form control heavy, we have quite a few styles to customize
+ * the display of inputs, headings, and more. Also included are all the download
+ * buttons and actions.
+ */
+
+.bs-customizer .toggle {
+  float: right;
+  margin-top: 85px; /* On account of ghetto navbar fix */
+}
+
+/* Headings and form contrls */
+.bs-customizer label {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #555;
+}
+.bs-customizer h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-top: 30px;
+}
+.bs-customizer h3 {
+  margin-bottom: 0;
+}
+.bs-customizer h4 {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.bs-customizer .bs-callout h4 {
+  margin-top: 0; /* lame, but due to specificity we have to duplicate */
+  margin-bottom: 5px;
+}
+.bs-customizer input[type="text"] {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  background-color: #fafafa;
+}
+.bs-customizer .help-block {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* For the variables, use regular weight */
+#less-section label {
+  font-weight: normal;
+}
+
+/* Downloads */
+.bs-customize-download .btn-outline {
+  padding: 20px;
+}
+
+/* Error handling */
+.bs-customizer-alert {
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  padding: 15px 0;
+  color: #fff;
+  background-color: #d9534f;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25);
+  border-bottom: 1px solid #b94441;
+}
+.bs-customizer-alert .close {
+  margin-top: -4px;
+  font-size: 24px;
+}
+.bs-customizer-alert p {
+  margin-bottom: 0;
+}
+.bs-customizer-alert .glyphicon {
+  margin-right: 5px;
+}
+.bs-customizer-alert pre {
+  margin: 10px 0 0;
+  color: #fff;
+  background-color: #a83c3a;
+  border-color: #973634;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
+}
+
+
+/*
+ * Miscellaneous
+ *
+ * Odds and ends for optimum docs display.
+ */
+
+ /* About page */
+ .bs-about {
+  font-size: 16px;
+ }
+
+/* Examples gallery: space out content better */
+.bs-examples h4 {
+  margin-bottom: 5px;
+}
+.bs-examples p {
+  margin-bottom: 20px;
+}
+
+/* Pseudo :focus state for showing how it looks in the docs */
+#focusedInput {
+  border-color: rgba(82,168,236,.8);
+  outline: 0;
+  outline: thin dotted \9; /* IE6-9 */
+  -moz-box-shadow: 0 0 8px rgba(82,168,236,.6);
+       box-shadow: 0 0 8px rgba(82,168,236,.6);
+}
+
+/* Better spacing on download options in getting started */
+.bs-docs-dl-options h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}

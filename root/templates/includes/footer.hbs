@@ -1,0 +1,27 @@
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+
+    <p>Made with <a href="https://github.com/assemble/assemble" target="_blank">Assemble</a>, the static site generator for Node.js, Grunt.js and Yeoman.</p>
+    {{#if production}}
+      {{> social-buttons }}
+    {{/if}}
+    <hr>
+
+    <p><a href="https://github.com/assemble/assemble" target="_blank">Assemble </a>&nbsp;was created by <a href="https://twitter.com/jonschlinkert" target="_blank"> Jon Schlinkert </a>&nbsp;and <a href="http://twitter.com/doowb" target="_blank"> Brian Woodward</a>.</p>
+    <p>Documentation source code released under the <a href="{{ site.license.url }}" target="_blank">{{ site.license.type }}&nbsp;</a> License, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <ul class="footer-links">
+      <li>Currently v{{ site.assemble.latest }}</li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{ site.url.blog }}">Blog</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{ site.url.bugs }}/issues?state=open">Issues</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{ site.url.repo }}/blob/master/CHANGELOG.md">Changelog</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="{{ site.url.repo }}/releases">Releases</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- "back-to-top" button -->
+<a href="#" style="right: 70px;" class="btn back-to-top btn-dark btn-fixed-bottom"> <span class="glyphicon glyphicon-chevron-up"></span> </a>

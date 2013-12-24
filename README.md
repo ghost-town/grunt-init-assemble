@@ -2,7 +2,6 @@
 
 > Quickly launch Assemble-based projects using [grunt-init][], including starter templates and data.
 
-
 ## Getting started
 
 ### Installation

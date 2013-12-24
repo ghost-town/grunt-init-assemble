@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>{{title}} | {{site.title}}</title>
-    <link rel="stylesheet" href="{{assets}}/bootstrap.css">
-    <link rel="stylesheet" href="{{assets}}/github.css">
+    {{> head }}
   </head>
   <body>
+    {{#if production}}
+      {{> tags }} {{! Google Tags. See https://www.google.com/tagmanager/}}
+    {{/if}}
 
-    {{! Navbar
-    ================================================== }}
-    {{> navbar }}
+    <a class="sr-only" href="#content">Skip to main content</a>
+    <!-- Navigation component -->
+    {{> nav-main }}
 
+    <!-- Subhead component -->
+    {{> subhead }}
 
-    {{! Subhead
-    ================================================== }}
-    <header class="masthead subhead">
-      <div class="container">
-        <div class="row">
-          <div class="col col-lg-12">
-            <h1> DOCS / {{#if title}}{{ uppercase title }}{{else}}{{ uppercase basename }}{{/if}} </h1>
-          </div>
-        </div>
-      </div>
-    </header>
+    <!-- Belt component -->
+    {{> belt }}
 
-    {{! Page content
-    ================================================== }}
-    <div class="container">
-      <div class="panel panel-docs">
-        {{> body }}
-      </div>
+    <div class="container bs-docs-container">
+      {{> body }}
     </div>
 
-    <script src="{{assets}}/highlight.js"></script>
-    <script src="{{assets}}/holder.js"></script>
+    <!-- Footer -->
+    {{> footer }}
+
+    <!-- JS and analytics only. -->
+    {{> javascripts }}
   </body>
 </html>

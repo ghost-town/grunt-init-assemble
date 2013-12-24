@@ -18,8 +18,9 @@ exports.notes = 'For more information about creating Assemble projects, ' +
   'please see the docs at http://assemble.io/docs/';
 
 // Template-specific notes to be displayed after question prompts.
-exports.after = 'Now install project dependencies with "npm install".' +
-  'After that, you may execute project tasks with "grunt assemble". For ' +
+exports.after = 'Now install project dependencies with:\n' +
+  '"npm install && bower install"\n' +
+  'After that, you may execute project tasks with "grunt". For ' +
   'more information about installing and configuring Assemble, please ' +
   'visit:' +
   '\n\n' +
@@ -35,23 +36,20 @@ exports.template = function(grunt, init, done) {
     // Prompt for these values.
     init.prompt('name'),
     init.prompt('username', 'assemble'),
+    {
+      name: 'username',
+      message: 'May I ask for your GitHub username?',
+      default: 'assemble'
+    },
     init.prompt('description'),
     init.prompt('version'),
     init.prompt('author_name'),
     init.prompt('author_url'),
-    init.prompt('username', 'assemble'),
     init.prompt('repository'),
     init.prompt('homepage'),
     init.prompt('bugs'),
     init.prompt('licenses'),
     init.prompt('main'),
-    init.prompt('grunt_version', '~0.4.2'),
-    {
-      name: 'assemble_version',
-      message: 'What versions of Assemble does it require?',
-      default: '~0.4.12',
-      warning: 'Must be a valid semantic version range descriptor.'
-    },
     {
       name: 'travis',
       message: 'Will this project be tested with Travis CI?',
@@ -65,23 +63,54 @@ exports.template = function(grunt, init, done) {
     props.author_url = 'https://github.com/' + props.username;
     props.repository = 'https://github.com/' + props.username + '/' + props.name + '.git';
     props.bugs       = 'https://github.com/' + props.username + '/' + props.name + '/issues';
+    props.dependencies = {
+      "chalk": "~0.4.0"
+    };
     props.devDependencies = {
-      'assemble': props.assemble_version,
-      'assemble-less': '~0.5.0',
-      'grunt-contrib-clean': '~0.5.0',
-      'grunt-contrib-jshint': '~0.6.0',
-      'grunt-contrib-watch': '~0.5.1',
-      'grunt-readme': '~0.1.0'
+      "assemble": "~0.4.30",
+      "assemble-contrib-anchors": "~0.1.1",
+      "assemble-contrib-toc": "~0.1.0",
+      "assemble-contrib-wordcount": "~0.3.0",
+      "assemble-less": "~0.6.0",
+      "grunt": "~0.4.2",
+      "grunt-contrib-clean": "~0.5.0",
+      "grunt-contrib-copy": "~0.4.1",
+      "grunt-contrib-jshint": "~0.6.0",
+      "grunt-contrib-watch": "~0.5.1",
+      "grunt-readme": "~0.4.5",
+      "grunt-sync-pkg": "~0.1.2",
+      "handlebars-helper-ghbtns": "~0.1.0",
+      "handlebars-helper-isactive": "~0.1.0",
+      "handlebars-helper-prettify": "~0.2.1",
+      "handlebars-helper-slugify": "~0.2.0",
+      "handlebars-helper-twitter": "~0.1.2",
+      "lodash": "~2.4.1",
+      "pretty": "~0.1.1",
+      "showup": "~0.1.2"
     };
     props.keywords = [
-      'static site generator',
-      'yeoman static site generator',
-      'grunt static site generator',
-      'site generator',
-      'component generator',
-      'blog generator',
-      'handlebars',
-      'templates'
+      "assemble boilerplate",
+      "assemble generator",
+      "assemble",
+      "assemble-contrib-wordcount",
+      "assembleboilerplate",
+      "blog generator",
+      "boilerplate",
+      "component generator",
+      "generator",
+      "grunt init template",
+      "grunt static site generator",
+      "handlebars",
+      "handlebars-helper-ghbtns",
+      "handlebars-helper-isactive",
+      "handlebars-helper-prettify",
+      "handlebars-helper-slugify",
+      "handlebars-helper-twitter",
+      "site generator",
+      "static site generator",
+      "templates",
+      "yeoman generator",
+      "yeoman static site generator"
     ];
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '0.8';

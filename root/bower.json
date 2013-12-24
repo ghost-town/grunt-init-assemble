@@ -1,6 +1,9 @@
 {
   "name": "{%= name %}",
+  "main": [
+    "Gruntfile.js"
+  ],
   "dependencies": {
-    "bootstrap": "~3.0.0"
+    "bootstrap": "~3.0.3"
   }
 }

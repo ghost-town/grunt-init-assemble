@@ -1,0 +1,41 @@
+//
+// Buttons
+// --------------------------------------------------
+
+@btn-outline-color:        #563d7c;
+@btn-outline-bg-color:     #fff;
+@btn-outline-border-color: #e5e5e5;
+
+@btn-outline-inverse-color:        #fff;
+@btn-outline-inverse-bg-color:     transparent;
+@btn-outline-inverse-border-color: #cdbfe3;
+
+
+/* Outline button for use within the docs */
+.btn-outline {
+  color: @btn-outline-color;
+  background-color: @btn-outline-bg-color;
+  border-color: @btn-outline-border-color;
+  &:hover,
+  &:focus,
+  &:active {
+    color: #fff;
+    background-color: #563d7c;
+    border-color: #563d7c;
+  }
+}
+
+/* Inverted outline button (white on dark) */
+.btn-outline-inverse {
+  color: @btn-outline-inverse-color;
+  background-color: @btn-outline-inverse-bg-color;
+  border-color: @btn-outline-inverse-border-color;
+  &:hover,
+  &:focus,
+  &:active {
+    color: #563d7c;
+    text-shadow: none;
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
