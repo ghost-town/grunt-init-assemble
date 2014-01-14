@@ -81,6 +81,7 @@ exports.template = function(grunt, init, done) {
       "handlebars-helper-prettify": "~0.2.1",
       "handlebars-helper-slugify": "~0.2.0",
       "handlebars-helper-twitter": "~0.1.2",
+      "handlebars-helper-br": "~0.1.0",
       "lodash": "~2.4.1",
       "pretty": "~0.1.2",
       "showup": "~0.1.2"
@@ -103,6 +104,7 @@ exports.template = function(grunt, init, done) {
       "handlebars-helper-prettify",
       "handlebars-helper-slugify",
       "handlebars-helper-twitter",
+      "handlebars-helper-br",
       "site generator",
       "static site generator",
       "templates",
