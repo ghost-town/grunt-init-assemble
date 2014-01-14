@@ -1,6 +1,9 @@
 /*
  * {%= name %}
- * https://github.com/{%= author_name %}/{%= name %}
+ * 
+ * {%= author_name %}
+ * https://github.com/{%= username %}/{%= name %}
+ * 
  * Copyright (c) {%= grunt.template.today('yyyy') %}
  * Licensed under the {%= licenses.join(', ') %} license{%= licenses.length === 1 ? '' : 's' %}.
  */
