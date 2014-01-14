@@ -35,21 +35,18 @@ exports.template = function(grunt, init, done) {
   init.process({type: 'node'}, [
     // Prompt for these values.
     init.prompt('name'),
-    init.prompt('username', 'assemble'),
-    {
-      name: 'username',
-      message: 'May I ask for your GitHub username?',
-      default: 'assemble'
-    },
+    init.prompt('username', (process.env.USER || process.env.USERNAME || 'assemble')),
     init.prompt('description'),
     init.prompt('version'),
     init.prompt('author_name'),
     init.prompt('author_url'),
-    init.prompt('repository'),
-    init.prompt('homepage'),
-    init.prompt('bugs'),
+    {
+      name: 'assemble_version',
+      message: 'What versions of Assemble does it run on?',
+      default: '0.4.33'
+    },
     init.prompt('licenses'),
-    init.prompt('main'),
+    init.prompt('main', 'Gruntfile.js'),
     {
       name: 'travis',
       message: 'Will this project be tested with Travis CI?',
@@ -67,7 +64,7 @@ exports.template = function(grunt, init, done) {
       "chalk": "~0.4.0"
     };
     props.devDependencies = {
-      "assemble": "~0.4.30",
+      "assemble": "~" + props.assemble_version,
       "assemble-contrib-anchors": "~0.1.1",
       "assemble-contrib-toc": "~0.1.0",
       "assemble-contrib-wordcount": "~0.3.0",
