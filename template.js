@@ -68,12 +68,12 @@ exports.template = function(grunt, init, done) {
       "assemble-contrib-anchors": "~0.1.1",
       "assemble-contrib-toc": "~0.1.0",
       "assemble-contrib-wordcount": "~0.3.0",
-      "assemble-less": "~0.6.0",
+      "assemble-less": "~0.7.0",
       "grunt": "~0.4.2",
       "grunt-contrib-clean": "~0.5.0",
-      "grunt-contrib-copy": "~0.4.1",
-      "grunt-contrib-jshint": "~0.6.0",
-      "grunt-contrib-watch": "~0.5.1",
+      "grunt-contrib-copy": "~0.5.0",
+      "grunt-contrib-jshint": "~0.8.0",
+      "grunt-contrib-watch": "~0.5.3",
       "grunt-readme": "~0.4.5",
       "grunt-sync-pkg": "~0.1.2",
       "handlebars-helper-ghbtns": "~0.1.0",
@@ -82,7 +82,7 @@ exports.template = function(grunt, init, done) {
       "handlebars-helper-slugify": "~0.2.0",
       "handlebars-helper-twitter": "~0.1.2",
       "lodash": "~2.4.1",
-      "pretty": "~0.1.1",
+      "pretty": "~0.1.2",
       "showup": "~0.1.2"
     };
     props.keywords = [
