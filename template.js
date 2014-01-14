@@ -35,21 +35,18 @@ exports.template = function(grunt, init, done) {
   init.process({type: 'node'}, [
     // Prompt for these values.
     init.prompt('name'),
-    init.prompt('username', 'assemble'),
-    {
-      name: 'username',
-      message: 'May I ask for your GitHub username?',
-      default: 'assemble'
-    },
+    init.prompt('username', (process.env.USER || process.env.USERNAME || 'assemble')),
     init.prompt('description'),
     init.prompt('version'),
     init.prompt('author_name'),
     init.prompt('author_url'),
-    init.prompt('repository'),
-    init.prompt('homepage'),
-    init.prompt('bugs'),
+    {
+      name: 'assemble_version',
+      message: 'What versions of Assemble does it run on?',
+      default: '0.4.33'
+    },
     init.prompt('licenses'),
-    init.prompt('main'),
+    init.prompt('main', 'Gruntfile.js'),
     {
       name: 'travis',
       message: 'Will this project be tested with Travis CI?',
@@ -67,16 +64,16 @@ exports.template = function(grunt, init, done) {
       "chalk": "~0.4.0"
     };
     props.devDependencies = {
-      "assemble": "~0.4.30",
+      "assemble": "~" + props.assemble_version,
       "assemble-contrib-anchors": "~0.1.1",
       "assemble-contrib-toc": "~0.1.0",
       "assemble-contrib-wordcount": "~0.3.0",
-      "assemble-less": "~0.6.0",
+      "assemble-less": "~0.7.0",
       "grunt": "~0.4.2",
       "grunt-contrib-clean": "~0.5.0",
-      "grunt-contrib-copy": "~0.4.1",
-      "grunt-contrib-jshint": "~0.6.0",
-      "grunt-contrib-watch": "~0.5.1",
+      "grunt-contrib-copy": "~0.5.0",
+      "grunt-contrib-jshint": "~0.8.0",
+      "grunt-contrib-watch": "~0.5.3",
       "grunt-readme": "~0.4.5",
       "grunt-sync-pkg": "~0.1.2",
       "handlebars-helper-ghbtns": "~0.1.0",
@@ -84,8 +81,9 @@ exports.template = function(grunt, init, done) {
       "handlebars-helper-prettify": "~0.2.1",
       "handlebars-helper-slugify": "~0.2.0",
       "handlebars-helper-twitter": "~0.1.2",
+      "handlebars-helper-br": "~0.1.0",
       "lodash": "~2.4.1",
-      "pretty": "~0.1.1",
+      "pretty": "~0.1.2",
       "showup": "~0.1.2"
     };
     props.keywords = [
@@ -106,6 +104,7 @@ exports.template = function(grunt, init, done) {
       "handlebars-helper-prettify",
       "handlebars-helper-slugify",
       "handlebars-helper-twitter",
+      "handlebars-helper-br",
       "site generator",
       "static site generator",
       "templates",

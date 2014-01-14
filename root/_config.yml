@@ -16,7 +16,10 @@ layouts:          <%= site.templates %>/layouts
 layout:           default.hbs
 
 # Extensions
-helpers:          <%= site.templates %>/helpers/*.js
+helpers:          
+  - <%= site.templates %>/helpers/*.js
+  - handlebars-helper-br
+
 plugins:
   - assemble-contrib-anchors
   - assemble-contrib-wordcount
